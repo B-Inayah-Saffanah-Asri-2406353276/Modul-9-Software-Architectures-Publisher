@@ -8,3 +8,6 @@ Publisher mengirimkan 5 event ke message broker. Setiap event berisi `UserCreate
 2. **The url of: “amqp://guest:guest@localhost:5672” is the same as in the subscriber program, what does it mean?***
 
 Hal tersebut berarti publisher dan subscriber terhubung ke server AMQP yang sama. Karena menggunakan koneksi yang sama, keduanya dapat saling komunikasi melalui message broker RabbitMQ yang sama.
+
+### Running RabbitMQ
+![alt text](<Screenshot 2026-05-11 213853.png>)
