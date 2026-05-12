@@ -11,3 +11,6 @@ Hal tersebut berarti publisher dan subscriber terhubung ke server AMQP yang sama
 
 ### Running RabbitMQ
 ![alt text](<Screenshot 2026-05-11 213853.png>)
+
+### Processing event
+![alt text](image.png)
