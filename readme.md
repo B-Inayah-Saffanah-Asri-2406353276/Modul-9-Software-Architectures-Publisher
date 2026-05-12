@@ -19,3 +19,7 @@ Program berhasil berjalan dan menerima pesan dari publisher melalui RabbitMQ men
 ### Monitoring Chart
 ![alt text](image-1.png)
 Pada grafik **Message rates** di RabbitMQ, terlihat adanya spike pada kurva yang terjadi dua kali sekitar pukul 14:37:10 dan 14:37:30. Spike tersebut muncul setiap kali publisher dijalankan, karena publisher mengirimkan sejumlah pesan sekaligus ke queue `user_created` dalam waktu singkat, sehingga message rate melonjak sesaat lalu kembali ke 0 setelah semua pesan selesai dikirim dan dikonsumsi oleh subscriber. Hal ini membuktikan bahwa RabbitMQ berhasil menerima, menyalurkan, dan mengosongkan pesan secara real-time setiap kali publisher dieksekusi.
+
+### Slow subscriber
+![alt text](image-2.png)
+Berdasarkan gambar, total pesan dalam queue adalah 16. Hal ini terjadi karena ini adalah simulasi slow subscriber, publisher mengirimkan banyak pesan dengan cepat secara berulang kali, namun subscriber memproses pesan lebih lambat, sehingga pesan-pesan yang belum sempat diproses menumpuk di queue. Angka 16 mencerminkan jumlah pesan yang sudah diterima subscriber tapi belum selesai diproses, dan jumlah tersebut akan terus bertambah setiap kali publisher dijalankan sebelum subscriber selesai memproses antrian sebelumnya.
